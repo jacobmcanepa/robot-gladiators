@@ -125,7 +125,7 @@ var endGame = function() {
 
   // if player is still alive, player wins
   if (playerHealth > 0) {
-    window.alert("Great job, you've survived the game! You now have a score of " + playerMoney + ".");
+    window.alert("Great job, you've survived the game!");
   }
   else {
     window.alert("You've lost your robot in battle.");
