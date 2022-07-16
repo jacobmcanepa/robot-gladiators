@@ -26,7 +26,7 @@ var fight = function(enemyName) {
       if (confirmSkip) {
         window.alert(playerName + " has decided to skip this fight. Goodbye!");
         // subtract money for skipping
-        playerMoney = playerMoney - 10;
+        playerMoney = Math.max(0, playerMoney - 10);
         console.log("player money:", playerMoney);
         break;
       }
@@ -34,7 +34,7 @@ var fight = function(enemyName) {
 
     if (promptFight === "fight" || promptFight === "FIGHT") {
       //player attack
-      enemyHealth = enemyHealth - playerAttack;
+      enemyHealth = Math.max(0, enemyHealth - playerAttack);
       console.log(
         playerName + " attacked " + enemyName + ". " + enemyName + " now has " + enemyHealth + " health remaining." 
       );
@@ -54,7 +54,7 @@ var fight = function(enemyName) {
       }
   
       // enemy attack
-      playerHealth = playerHealth - enemyAttack;
+      playerHealth = Math.max(playerHealth - enemyAttack);
       console.log(
         enemyName + " attacked " + playerName + ". " + playerName + " now has " + playerHealth + " health remaining."
       );
@@ -100,7 +100,7 @@ var startGame = function() {
       // if we're not at the last enemy in the array
       if (i < enemyNames.length - 1 && playerHealth > 0) {
         // ask if player wants to use the store before next round
-        var storeConfirm = window.confirm("The fight is over, visit the store before next round? You have " + playerMoney + " credits.");
+        var storeConfirm = window.confirm("The fight is over; visit the store before next round?");
 
         // if yes, take them to the store() function
         if (storeConfirm) {
@@ -125,7 +125,7 @@ var endGame = function() {
 
   // if player is still alive, player wins
   if (playerHealth > 0) {
-    window.alert("Great job, you've survived the game!");
+    window.alert("Great job, you've survived the game! You now have a score of " + playerMoney + ".");
   }
   else {
     window.alert("You've lost your robot in battle.");
