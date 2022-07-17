@@ -250,7 +250,6 @@ var getPlayerName = function() {
     name = prompt("What is your robot's name?");
   }
 
-  console.log("Your robot's name is ", name);
   return name;
 };
 
@@ -271,8 +270,8 @@ var playerInfo = {
   refillHealth: function() {
     if (this.money >= 7) {
       window.alert("Refilling player's health by 20 for 7 credits.");
-      this.health += 20;
-      this.money -= 7;
+      this.health += 25;
+      this.money -= 5;
     }
 
     else {
@@ -295,16 +294,16 @@ var playerInfo = {
 
 var enemyInfo = [
   {
-    name: "Fagbot",
-    attack: randomNumber(10, 13)
+    name: "Lobot",
+    attack: randomNumber(8, 11)
   },
   {
-    name: "Jewbot",
+    name: "Rosie",
     attack: randomNumber(10, 14)
   },
   {
-    name: "Nigbot",
-    attack: randomNumber(10, 15)
+    name: "Droideka",
+    attack: randomNumber(11, 16)
   }
 ];
 
